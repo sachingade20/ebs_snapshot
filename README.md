@@ -1,7 +1,7 @@
 # Automate ebs volume snapshots
 
 # Installation
-Clone a copy of the main aws-sdk-core-ruby-rake from git repo by running:
+Clone a copy of the main ebs-snapshot from git repo by running:
 
     $ git clone git://github.com/sachingade20/ebs-snapshot.git
 
