@@ -79,9 +79,9 @@
     age_in_days
   end
 
-   run_create_snapshot_from_instance_name
-  # run_create_snapshot_from_instances
-  #run_create_snapshot_from_images
-  # run_delete_snapshot_from_instances
-  # run_delete_snapshot_from_images
-  # run_delete_snapshot_from_instance_name
+  run_create_snapshot_from_instance_name
+  run_create_snapshot_from_instances
+  run_create_snapshot_from_images
+  run_delete_snapshot_from_instances
+  run_delete_snapshot_from_images
+  run_delete_snapshot_from_instance_name
