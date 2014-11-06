@@ -1,0 +1,35 @@
+GIT
+  remote: git://github.com/aws/aws-sdk-core-ruby.git
+  revision: 0b17242997e87dc4aa4db8bdfeb194b712140e66
+  specs:
+    aws-sdk-core (2.0.0.rc16)
+      builder (~> 3.0)
+      jamespath (>= 0.5.1)
+      multi_json (~> 1.0)
+      multi_xml (~> 0.5)
+
+PATH
+  remote: .
+  specs:
+    ebs-snapshot (0.0.1)
+      aws-sdk-core
+      highline
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    builder (3.2.2)
+    highline (1.6.21)
+    jamespath (0.5.1)
+    multi_json (1.10.1)
+    multi_xml (0.5.5)
+    rake (10.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aws-sdk-core (~> 2.0.0.rc8)!
+  bundler (~> 1.5)
+  ebs-snapshot!
+  rake

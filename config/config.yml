@@ -1,0 +1,19 @@
+  # Comma separated image ids for creating snapshots.
+  # If you specified the instance_name or instance_ids property, do not specify this property.
+  # image_ids: ami-9b6125ab
+
+  # Comma separated instance ids for creating snapshots.
+  # If you specified the instance_name or image_ids property, do not specify this property.
+  # instance_ids: i-3e045135
+
+  # Comma separated instance name for creating snapshots.
+  # If you specified the image_ids or instance_ids property, do not specify this property.
+  instance_name: PipelineStagingMongo
+
+
+  # age in days to retain snapshots
+  retention:
+    daily: 14 # keep every day for <daily> days
+    periodic: # every <interval> days keep one snapshot for <interval * span> days
+      interval: 7
+      span: 4
