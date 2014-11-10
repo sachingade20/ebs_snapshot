@@ -30,12 +30,13 @@ See `rake -T aws:ebs:snapshot` for available rake tasks.
 ## Clients
 Within /bin you will find several clients written for processing snapshot.
 
-    Rabbitmq Client
-        Rabbitmq consumer client which triggers snapshot using messages.
+Rabbitmq Client
+    - Rabbitmq consumer client which triggers snapshot using messages.
+
         Message Queue : "ebs.snapshot"
         Message Body
-            "create" : creates snapshot using configs from config/config.yml
-            "delete" : deletes snapshot using configs from config/config.yml
+            "create" : creates snapshot using configs from config/config.yml.
+            "delete" : deletes snapshot using configs from config/config.yml.
 
-    Ruby Client
-        Creates and deletes snapshot using configs from config/config.yml
+Ruby Client
+    - Creates and deletes snapshot using configs from config/config.yml.
