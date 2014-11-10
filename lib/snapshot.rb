@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
-
-  CONFIG = YAML.load_file('config/config.yml')
-
+ require 'yaml'
+   CONFIG = YAML::load_file("#{File.expand_path("../../", __FILE__)}/config/config.yml")
 
   def create_snapshot
     region = CONFIG['region'] != nil ? CONFIG['region'] : ENV['AWS_REGION']
@@ -26,6 +25,7 @@
     if age_in_days == nil
       periodic_interval = CONFIG['retention']['periodic']['interval']
       periodic_span = CONFIG['retention']['periodic']['span']
+
       # Calculate age_in_days by multiplying interval and span
       if periodic_interval != nil && periodic_span != nil
         age_in_days = periodic_interval * periodic_span
@@ -51,7 +51,6 @@
       puts "==> about to run create_from_instance_name #{instance_name} #{region} "
       %x(rake aws:ebs:snapshot:create_from_instance_name[#{region},#{instance_name}])
     end
-
   end
 
   # Create snapshots from instances
@@ -60,7 +59,6 @@
       puts "==> about to run create_from_instances #{instance_ids} #{region} "
       %x(rake aws:ebs:snapshot:create_from_instances[#{region},#{instance_ids}])
     end
-
   end
 
   # Create snapshots from images
