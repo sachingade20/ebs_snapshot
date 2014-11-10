@@ -22,7 +22,7 @@ QUEUE = 'ebs.snapshot'
       delete_snapshot
       puts " Snapshot Deleted... "
     else
-      puts " Invalid Message... "
+      puts " Invalid request message... \nSupported messages \n1] create \n2] delete"
     end
     puts "Processed ..."
   end
