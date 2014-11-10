@@ -18,7 +18,10 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    amq-protocol (1.9.2)
     builder (3.2.2)
+    bunny (1.6.3)
+      amq-protocol (>= 1.9.2)
     highline (1.6.21)
     jamespath (0.5.1)
     multi_json (1.10.1)
@@ -31,5 +34,6 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-core (~> 2.0.0.rc8)!
   bundler (~> 1.5)
+  bunny (>= 1.6.0)
   ebs-snapshot!
   rake

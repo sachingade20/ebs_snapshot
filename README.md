@@ -22,7 +22,20 @@ Configure aws credentials in config/aws_credentials.sh and copy it to home direc
     echo "source ~/aws_credentials.sh" >> ~/.bash_profile
 
 ## Usage
-Automate ebs volume snapshots on weekly, daily or hourly basis.
+Create or Delete ebs volume snapshots.
 
 # Rake Task User Guide
 See `rake -T aws:ebs:snapshot` for available rake tasks.
+
+## Clients
+Within /bin you will find several clients written for processing snapshot.
+
+    Rabbitmq Client
+        Rabbitmq consumer client which triggers snapshot using messages.
+        Message Queue : "ebs.snapshot"
+        Message Body
+            "create" : creates snapshot using configs from config/config.yml
+            "delete" : deletes snapshot using configs from config/config.yml
+
+    Ruby Client
+        Creates and deletes snapshot using configs from config/config.yml

@@ -4,3 +4,4 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'aws-sdk-core', '~> 2.0.0.rc8', github: 'aws/aws-sdk-core-ruby'
+gem "bunny", ">= 1.6.0"
