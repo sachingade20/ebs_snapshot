@@ -12,13 +12,13 @@ QUEUE = 'ebs.snapshot'
 
   begin
     puts " [*] Waiting for messages. To exit press CTRL+C"
-    q.subscribe(:block => true) do |delivery_info, properties, body|
-    puts " [x] Received Message  #{body}"
+    q.subscribe(:block => true) do |delivery_info, properties, message_body|
+    puts " [x] Received Message  #{message_body}"
     puts "Processing ..."
-    if body.downcase == 'create'
+    if message_body.downcase == 'create'
       create_snapshot
       puts " Snapshot Created... "
-    elsif body.downcase == 'delete'
+    elsif message_body.downcase == 'delete'
       delete_snapshot
       puts " Snapshot Deleted... "
     else
