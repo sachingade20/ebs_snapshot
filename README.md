@@ -23,6 +23,7 @@ Configure aws credentials in config/aws_credentials.sh and copy it to home direc
 
 ## Usage
 Create or Delete ebs volume snapshots. Within /bin you will find several clients written for processing snapshot.
+Please refer samples/*.sample for sender request structure.
 
 Rabbitmq Client
     - Rabbitmq consumer client which triggers snapshot using messages.
