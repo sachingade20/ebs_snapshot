@@ -3,7 +3,7 @@
 # Installation
 Clone a copy of the main ebs-snapshot from git repo by running:
 
-    $ git clone git://github.com/sachingade20/ebs-snapshot.git
+    $ git clone git://github.com/sachingade20/ebs_snapshot.git
 
 And then execute:
 
@@ -15,15 +15,12 @@ Within /config you will find several sample configuration files ending in **.sam
 # Setup volume filter
 Update config/config.yml with the configuration required to find out the volumes for snapshot.
 
-# Setup aws credentials
-Configure aws credentials in config/aws_credentials.sh and copy it to home directory
-
-    cp config/aws_credentials.sh.sample ~/aws_credentials.sh
-    echo "source ~/aws_credentials.sh" >> ~/.bash_profile
+# Using IAM instance role
+Your instance should be IAM role enabled to resolved the credentials using Amazon instance metadata API.
 
 ## Usage
 Create or Delete ebs volume snapshots. Within /bin you will find several clients written for processing snapshot.
-Please refer samples/*.sample for sender request structure.
+Please refer examples/*.sample for sender request structure.
 
 Rabbitmq Client
     - Rabbitmq consumer client which triggers snapshot using messages.

@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
- require 'yaml'
-   CONFIG = YAML::load_file("#{File.expand_path("../../", __FILE__)}/config/config.yml")
+require 'yaml'
+require 'logger'
+require_relative 'ebs_snapshot/version.rb'
+
+CONFIG = YAML::load_file("#{File.expand_path("../../", __FILE__)}/config/config.yml")
+$LOG = Logger.new(CONFIG['log_file_path'], 'monthly')
+
+module EbsSnapshot
 
   def create_snapshot
     region = CONFIG['region'] != nil ? CONFIG['region'] : ENV['AWS_REGION']
@@ -48,7 +54,7 @@
   # Create snapshots from instance name
   def run_create_snapshot_from_instance_name(region, instance_name)
     if instance_name != nil
-      puts "==> about to run create_from_instance_name #{instance_name} #{region} "
+      $LOG.info("==> about to run create_from_instance_name #{instance_name} #{region} ")
       %x(rake aws:ebs:snapshot:create_from_instance_name[#{region},#{instance_name}])
     end
   end
@@ -56,7 +62,7 @@
   # Create snapshots from instances
   def run_create_snapshot_from_instances(region, instance_ids)
     if instance_ids != nil
-      puts "==> about to run create_from_instances #{instance_ids} #{region} "
+      $LOG.info("==> about to run create_from_instances #{instance_ids} #{region} ")
       %x(rake aws:ebs:snapshot:create_from_instances[#{region},#{instance_ids}])
     end
   end
@@ -64,7 +70,7 @@
   # Create snapshots from images
   def run_create_snapshot_from_images(region, image_ids)
     if image_ids != nil
-      puts "==> about to run create_from_images #{image_ids} #{region}  "
+      $LOG.info("==> about to run create_from_images #{image_ids} #{region}  ")
       %x(rake aws:ebs:snapshot:create_from_images[#{region},#{image_ids}])
     end
   end
@@ -72,7 +78,7 @@
   # Delete snapshots from images
   def run_delete_snapshot_from_images(region, image_ids, age_in_days)
     if image_ids != nil
-      puts "==> about to run delete_from_images #{image_ids} #{age_in_days} #{region} "
+      $LOG.info("==> about to run delete_from_images #{image_ids} #{age_in_days} #{region} ")
       %x(rake aws:ebs:snapshot:delete_from_images[#{region},#{age_in_days},#{image_ids}])
     end
   end
@@ -80,7 +86,7 @@
   # delete snapshots from instances
   def run_delete_snapshot_from_instances(region, instance_ids, age_in_days)
     if instance_ids != nil
-      puts "==> about to run delete_from_instances #{instance_ids} #{age_in_days} #{region} "
+      $LOG.info("==> about to run delete_from_instances #{instance_ids} #{age_in_days} #{region} ")
       %x(rake aws:ebs:snapshot:delete_from_instances[#{region},#{age_in_days},#{instance_ids}])
     end
   end
@@ -88,7 +94,9 @@
   # delete snapshots from instance name
   def run_delete_snapshot_from_instance_name(region, instance_name, age_in_days)
     if instance_name != nil
-      puts "==> about to run delete_from_instance_name #{instance_name} #{age_in_days} #{region} "
+      $LOG.info("==> about to run delete_from_instance_name #{instance_name} #{age_in_days} #{region} ")
       %x(rake aws:ebs:snapshot:delete_from_instance_name[#{region},#{age_in_days},#{instance_name}])
     end
   end
+
+end

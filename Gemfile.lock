@@ -11,8 +11,9 @@ GIT
 PATH
   remote: .
   specs:
-    ebs-snapshot (0.0.1)
+    ebs_snapshot (0.0.1)
       aws-sdk-core
+      bunny
       highline
 
 GEM
@@ -35,5 +36,5 @@ DEPENDENCIES
   aws-sdk-core (~> 2.0.0.rc8)!
   bundler (~> 1.5)
   bunny (>= 1.6.0)
-  ebs-snapshot!
+  ebs_snapshot!
   rake
