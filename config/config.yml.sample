@@ -1,14 +1,14 @@
 # Comma separated image ids for creating snapshots.
   # If you specified the instance_name or instance_ids property, do not specify this property.
-Image_ids: ami-9b6125ab
+image_ids: ami-9b6125ab
 
 # Comma separated instance ids for creating snapshots.
   # If you specified the instance_name or image_ids property, do not specify this property.
-Instance_ids: i-3e045135
+instance_ids: i-3e045135
 
 # Comma separated instance name for creating snapshots.
   # If you specified the image_ids or instance_ids property, do not specify this property.
-Instance_name: PipelineStagingMongo
+instance_name: PipelineStagingMongo
 
 # age in days to retain snapshots
 retention:
@@ -18,5 +18,4 @@ retention:
     span: 4
 
 # log file location
-log_file_path : /var/log/cron_snapshots.log
 log_file_path : /var/log/cron_snapshots.log
