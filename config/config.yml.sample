@@ -19,4 +19,3 @@ retention:
 
 # log file location
 log_file_path : /var/log/cron_snapshots.log
-log_file_path : /var/log/cron_snapshots.log
